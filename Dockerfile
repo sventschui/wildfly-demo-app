@@ -1,11 +1,9 @@
 FROM jboss/wildfly:10.0.0.Final
 
-RUN yum -y install wget
 RUN wget "http://www.pirbot.com/mirrors/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
 RUN echo "516923b3955b6035ba6b0a5b031fbd8b  apache-maven-3.3.9-bin.tar.gz" > MD5SUM
 RUN md5sum -c MD5SUM
 RUN tar -xvfc apache-maven-3.3.9-bin.tar.gz /opt/maven
-RUN yum -y remove wget
 RUN rm -f MD5SUM
 
 RUN M2_HOME=/opt/maven \
