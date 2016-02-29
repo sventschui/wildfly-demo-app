@@ -13,6 +13,8 @@ RUN M2_HOME=/opt/maven \
     PATH=$M2:$PATH \
     mvn clean verify
 
+ADD conf/standalone.xml /opt/jboss/wildfly/standalone/configuration/
+
 ADD target/postgresql.jar /opt/jboss/wildfly/standalone/deployments/
 
 ADD target/wildfly-demo-app.war /opt/jboss/wildfly/standalone/deployments/
