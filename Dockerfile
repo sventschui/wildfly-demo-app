@@ -15,7 +15,7 @@ RUN cd /src && \
     M2_HOME=/opt/jboss/maven \
     M2=$M2_HOME/bin \
     PATH=$M2:$PATH \
-    mvn clean verify -DproxySet=true -DproxyHost=default-http-proxy.pink.eu-central-1.aws.openpaas.axa-cloud.com -DproxyPort=8888 && \
+    mvn clean verify $MAVEN_ARGS && \
     cp target/postgresql.jar /opt/jboss/wildfly/standalone/deployments/ && \
     cp target/wildfly-demo-app.war /opt/jboss/wildfly/standalone/deployments/
 
